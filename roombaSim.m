@@ -2015,7 +2015,7 @@ classdef roombaSim < handle
                 case 165; obj.ignoreCommand(cmd,'Buttons',1);
                 case 167; obj.ignoreCommand(cmd,'Schedule',15);
                 case 168; obj.ignoreCommand(cmd,'Set Day/Time',3);
-                case 173; obj.ignoreCommand(cmd,'Stop Mode');
+                case 173; exit;
                 otherwise
                     obj.ignoreCommand(cmd);
             end

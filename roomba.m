@@ -588,13 +588,13 @@ classdef roomba < handle
             %
             % EXAMPLES:
             %   r = r.connect(0)                % simulator
-            %   r = r.connect(1,'com3')         % by number, PC tethered
+            %   r = r.connect(1)                % by number
             %   r = r.connect('c3po')           % by name, PC tethered
-            %   r = r.connect('/dev/ttyusb0',2) % mac tethered
-            %   r = r.connect('wifi',4)          % 192.168.1.204
-            %   r = r.connect('wifi',4,'lan')    % 192.168.1.204
-            %   r = r.connect('bt',4)           % bluetooth name roo4
-            %   r = r.connect('bt',4,'router')  % bluetooth name roo4, wifi via router
+            %   r = r.connect('sim')            % simulator by name
+            %   r = r.connect(1,'com3')         % by number, PC tethered
+            %   r = r.connect(1,'/dev/ttyusb0') % mac tethered
+            %   r = r.connect(1,'bt')           % bluetooth name roo4, camera via lan
+            %   r = r.connect(1,'bt','router')  % bluetooth name roo4, camera via router
             
             % ROUTING
             %   all of the roombas are configured to connect to the local wifi router
@@ -610,11 +610,14 @@ classdef roomba < handle
             %             use as a host name for a TCPIP connection
             %             ex. RoombaInit('efdpi006.nomad.utk.edu')
             
-            if nargin<2, comID = 'wifi'; end
-            if nargin<3, botID=0; end
+            if nargin<2, botID=0; end
+            if nargin<3, comID = 'wifi'; end
             if nargin<4, netID = 'lan'; end
             
             % if the botID is text convert it to a number
+            if strcmp(botID,'sim')
+                botID=0;
+            end
             if ~isnumeric(botID)
                 this.botID = find(strcmpi(this.botList,botID));
                 if this.botID==0
