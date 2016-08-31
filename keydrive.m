@@ -1,5 +1,5 @@
 function keydrive(rob)
-% foo foo new
+% foo foo new new
 h=figure(2);
 set(h,'WindowKeyPressFcn',@dostuff)
 set(h,'UserData',rob)
