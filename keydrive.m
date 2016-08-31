@@ -4,7 +4,7 @@ set(h,'WindowKeyPressFcn',@dostuff)
 set(h,'UserData',rob)
 set(h,'units','normalized','position',[.6,.6,.3,.3]);
 axis off
-text(0.5,3,{'Drive: arrow keys','Stop: space','Beep: 1-8','Snapshot: P'});
+text(0.5,3,{'Drive: arrow keys','Stop: space','Tones: 1-8','Snapshot: P','Quit: Q'});
 axis([0,0,3,3]);
 % t = timer;
 % t.Ex
